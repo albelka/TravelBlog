@@ -26,7 +26,8 @@
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
           "Microsoft.Extensions.Logging.Console": "1.0.0",
-          "Microsoft.NETCore.App": "1.0.1"
+          "Microsoft.NETCore.App": "1.0.1",
+          "System.Collections.Immutable": "1.2.0"
         },
         "compile": {
           "TravelBlog.dll": {}
@@ -2749,7 +2750,8 @@
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
           "Microsoft.Extensions.Logging.Console": "1.0.0",
-          "Microsoft.NETCore.App": "1.0.1"
+          "Microsoft.NETCore.App": "1.0.1",
+          "System.Collections.Immutable": "1.2.0"
         },
         "runtime": {
           "TravelBlog.dll": {}

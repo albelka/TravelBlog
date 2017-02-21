@@ -1,0 +1,16 @@
+﻿@model TravelBlog.Models.Suggestion
+
+@{
+    ViewData["Title"] = "Travel Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="list-card">
+    <h3>Are you sure you want to delete this suggestion?</h3>
+    <hr />
+    @Html.DisplayFor(model => model.Description)
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="Delete" class="btn btn-default" />
+    }
+    @Html.ActionLink("Back to List", "Index", "Locations")
+</div>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using TravelBlog.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Immutable;
 
 namespace TravelBlog.Controllers
 {
@@ -37,13 +38,26 @@ namespace TravelBlog.Controllers
         [HttpPost]
         public IActionResult Create(Suggestion suggestion, int locationId)
         {
-            Location location = suggestionRepo.Locations.FirstOrDefault(l => l.LocationId == locationId);
+            //Location location = suggestionRepo.Locations.FirstOrDefault(l => l.LocationId == locationId);
             //string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             //ApplicationUser user = suggestionRepo.Users.FirstOrDefault(u => u.Id == userId);
-            suggestion.Location = location;
+            //suggestion.Location = location;
             //suggestion.AppUser = user;
             suggestionRepo.Save(suggestion);
-            return RedirectToAction("Details", "Locations", new { id = suggestion.Location.LocationId });
+            return RedirectToAction("Index","Locations");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var thisSuggestion = suggestionRepo.Suggestions.FirstOrDefault(suggestion => suggestion.Id == id);
+            return View(thisSuggestion);
+        }
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisSuggestion = suggestionRepo.Suggestions.FirstOrDefault(suggestion => suggestion.Id == id);
+            suggestionRepo.Remove(thisSuggestion);
+            return RedirectToAction("Index","Locations");
         }
     }
 }

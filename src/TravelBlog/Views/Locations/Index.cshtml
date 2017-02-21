@@ -4,6 +4,22 @@
     ViewData["Title"] = "Travel Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.suggestion-view').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("DisplaySuggestionsView", "Locations")',
+                success: function (result) {
+                    $('#suggestionView').html(result);
+                }
+            });
+        });
+    });
+
+</script>
 <h2>Places I've been</h2>
 <ul>
     @foreach(var place in Model)
@@ -19,3 +35,6 @@
 
     <p>@Html.ActionLink("Add new adventure", "Create")</p>
 </div>
+
+<button class="suggestion-view">Suggest a destination</button>
+<div id="suggestionView"></div>

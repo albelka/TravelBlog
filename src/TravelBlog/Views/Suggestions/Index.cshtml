@@ -1,19 +1,13 @@
 ﻿@model List<TravelBlog.Models.Suggestion>
 
-@{
-    ViewData["Title"] = "Travel Blog";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 <h2>Suggestions</h2>
 <ul>
    @foreach (var suggestion in Model)
     {
         <li class="list-card">
-            @Html.DisplayFor(modelSuggestion => suggestion.Description) | @Html.ActionLink("Details", "Details", new { id = suggestion.Id })
+            @Html.DisplayFor(modelSuggestion => suggestion.Description) |
             @Html.ActionLink("Edit", "Edit", new { id = suggestion.Id }) | @Html.ActionLink("Delete", "Delete", new { id = suggestion.Id })
             <br />
-
-            @Html.DisplayFor(modelSuggestion => suggestion.Description)
         </li>
     }
 </ul>

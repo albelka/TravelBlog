@@ -72,5 +72,10 @@ namespace TravelBlog.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult DisplaySuggestionsView()
+        {
+            return RedirectToAction("Index","Suggestions");
+        }
     }
 }
