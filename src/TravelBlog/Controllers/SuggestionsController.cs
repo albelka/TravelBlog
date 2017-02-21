@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TravelBlog.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace TravelBlog.Controllers
 {
@@ -28,9 +29,9 @@ namespace TravelBlog.Controllers
             return View(suggestionRepo.Suggestions.ToList());
         }
 
-        public IActionResult Create(int id)
+        public IActionResult Create()
         {
-            ViewBag.LocationId = id;
+         
             return View();
         }
         [HttpPost]

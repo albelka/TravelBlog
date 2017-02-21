@@ -1,23 +1,22 @@
-﻿@model List<TravelBlog.Models.Suggestion>
+﻿@model TravelBlog.Models.Suggestion
+@using TravelBlog.Models
 
 @{
     ViewData["Title"] = "Travel Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Suggestions</h2>
-<ul>
-    @*@foreach (var place in Model)
-        {
-            <li class="list-card">
-                @Html.DisplayFor(modelLocation => place.LocationName) | @Html.ActionLink("Details", "Details", new { id = place.LocationId })
-                @Html.ActionLink("Edit", "Edit", new { id = place.LocationId }) | @Html.ActionLink("Delete", "Delete", new { id = place.LocationId })
-                <br />
 
-                @Html.DisplayFor(modelLocation => place.LocationDescription)
-            </li>
-        }*@
-</ul>
-@*<div class="list-card">
 
-        <p>@Html.ActionLink("Add new adventure", "Create")</p>
-    </div>*@
+<h2>Create</h2>
+<hr />
+<div class="list-card">
+<h3>Add a new Suggestion</h3>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description)
+
+    <input type="submit" value="Add new suggestion" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
+</div>

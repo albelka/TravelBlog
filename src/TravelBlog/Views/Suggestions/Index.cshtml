@@ -6,18 +6,19 @@
 }
 <h2>Suggestions</h2>
 <ul>
-    @*@foreach (var place in Model)
+   @foreach (var suggestion in Model)
     {
         <li class="list-card">
-            @Html.DisplayFor(modelLocation => place.LocationName) | @Html.ActionLink("Details", "Details", new { id = place.LocationId })
-            @Html.ActionLink("Edit", "Edit", new { id = place.LocationId }) | @Html.ActionLink("Delete", "Delete", new { id = place.LocationId })
+            @Html.DisplayFor(modelSuggestion => suggestion.Description) | @Html.ActionLink("Details", "Details", new { id = suggestion.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = suggestion.Id }) | @Html.ActionLink("Delete", "Delete", new { id = suggestion.Id })
             <br />
 
-            @Html.DisplayFor(modelLocation => place.LocationDescription)
+            @Html.DisplayFor(modelSuggestion => suggestion.Description)
         </li>
-    }*@
+    }
 </ul>
-@*<div class="list-card">
 
-    <p>@Html.ActionLink("Add new adventure", "Create")</p>
-</div>*@
+<div class="list-card">
+
+    <p>@Html.ActionLink("Add new suggestion", "Create")</p>
+</div>
