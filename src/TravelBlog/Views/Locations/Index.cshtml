@@ -8,7 +8,7 @@
 <ul>
     @foreach(var place in Model)
     {
-        <li class="list-card">@Html.DisplayFor(modelLocation => place.LocationName) | @Html.ActionLink("Details", "Details", new { id = place.LocationId }) 
+        <li class="list-card">@Html.DisplayFor(modelLocation => place.LocationName) | @Html.ActionLink("Details", "Details", new { id = place.LocationId }) | 
             @Html.ActionLink("Edit", "Edit", new { id = place.LocationId }) | @Html.ActionLink("Delete", "Delete", new { id = place.LocationId })
     <br />
 

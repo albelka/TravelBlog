@@ -5,6 +5,21 @@
 
 @using System.Security.Claims
 
+<script type="text/javascript">
+    $(document).ready(function () {
+            $('.display-view').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '@Url.Action("DisplayRegisterView", "Account")',
+                    success: function (result) {
+                        $('#registerView').html(result);
+                    }
+                });
+            });
+    });
+</script>
+
 <h2>Authentication with Identity</h2>
 <hr />
 @if (User.Identity.IsAuthenticated)
@@ -12,7 +27,10 @@
     <p>Hello @User.Identity.Name!</p>
 }
 else
-{
+{<div class="list-card">
+    <button class="display-view">Register</button>
+    <div id="registerView"></div>
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Log in", "Login")</p>
+</div>
 }

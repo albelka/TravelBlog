@@ -70,6 +70,11 @@ namespace TravelBlog.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
         }
+       
+        public IActionResult DisplayRegisterView()
+        {
+           return RedirectToAction ("Register");
+        }
 
     }
 }

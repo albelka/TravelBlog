@@ -22,7 +22,6 @@ namespace TravelBlog.Controllers
         public IActionResult Create()
         {
             ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "LocationName");
-            ViewBag.ExperienceId = new SelectList(db.Experiences, "ExperienceId", "ExperienceName");
             return View();
         }
 
@@ -46,7 +45,6 @@ namespace TravelBlog.Controllers
         {
             var thisPerson = db.People.FirstOrDefault(person => person.PersonId == id) ;
             ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "LocationName");
-            ViewBag.ExperienceId = new SelectList(db.Experiences, "ExperienceId", "ExperienceName");
             return View(thisPerson);
         }
 
