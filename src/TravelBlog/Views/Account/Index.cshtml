@@ -7,18 +7,31 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-            $('.display-view').click(function () {
-                $.ajax({
-                    type: 'GET',
-                    dataType: 'html',
-                    url: '@Url.Action("DisplayRegisterView", "Account")',
-                    success: function (result) {
-                        $('#registerView').html(result);
-                    }
-                });
+        $('.display-view').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("DisplayRegisterView", "Account")',
+                success: function (result) {
+                    $('#registerView').html(result);
+                }
             });
+        });
+        $('.login-view').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("DisplayLoginView", "Account")',
+                success: function (result) {
+                    $('#loginView').html(result);
+                }
+            });
+        });
     });
+
 </script>
+
+
 
 <h2>Authentication with Identity</h2>
 <hr />
@@ -29,8 +42,8 @@
 else
 {<div class="list-card">
     <button class="display-view">Register</button>
+    <button class="login-view">Login</button>
     <div id="registerView"></div>
-    <p>@Html.ActionLink("Register", "Register")</p>
-    <p>@Html.ActionLink("Log in", "Login")</p>
+    <div id="loginView"></div>
 </div>
 }

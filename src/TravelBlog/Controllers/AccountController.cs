@@ -76,5 +76,10 @@ namespace TravelBlog.Controllers
            return RedirectToAction ("Register");
         }
 
+        public IActionResult DisplayLoginView()
+        {
+            return RedirectToAction("Login");
+        }
+
     }
 }
