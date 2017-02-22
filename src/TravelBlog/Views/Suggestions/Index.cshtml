@@ -1,18 +1,46 @@
 ﻿@model List<TravelBlog.Models.Suggestion>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.new-vote').submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Upvote", "Suggestions")', 
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: function (result) {
+                    console.log(result);
+                    var resultMessage =  result.description + ' has ' + result.votes + ' votes.';
+                    $('#upvoted').html(resultMessage);
+                }
+
+            });
+
+        });
+
+    });
+</script>
+
 <h2>Suggestions</h2>
 <ul>
    @foreach (var suggestion in Model)
     {
         <li class="list-card">
             @Html.DisplayFor(modelSuggestion => suggestion.Description) |
-            @Html.ActionLink("Edit", "Edit", new { id = suggestion.Id }) | @Html.ActionLink("Delete", "Delete", new { id = suggestion.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = suggestion.Id }) | @Html.ActionLink("Delete", "Delete", new { id = suggestion.Id }) 
+           <form class="new-vote">
+               <input type="hidden" value="@suggestion.Id" name="Upvote" />
+               <button type="submit">Upvote</button>
+           </form>
             <br />
         </li>
     }
 </ul>
 
+
 <div class="list-card">
+    <div id="upvoted"></div>
 
     <p>@Html.ActionLink("Add new suggestion", "Create")</p>
 </div>
